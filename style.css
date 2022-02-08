@@ -15,13 +15,15 @@
 * {
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
 
 body {
     background-image: url(img/backgroung.png);
     background-size: cover;
-    background-position: center;
+    background-repeat: no-repeat;
     height: 100vh;
+    background-position: center;
 }
 
 header {
@@ -29,7 +31,7 @@ header {
     padding: 40px 80px;
 }
 
-nav {
+.navbar .max-width {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -39,15 +41,15 @@ nav {
     width: 200px;
 }
 
-ul {
+.menu {
     display: block;
 }
 
-ul li {
+.menu li {
     display: inline-block;
 }
 
-ul li a {
+.menu li a {
     position: relative;
     text-transform: uppercase;
     text-decoration: none;
@@ -57,46 +59,54 @@ ul li a {
     color: #000;
 }
 
-ul li a:before {
+.menu li a:before {
     position: absolute;
     content: "";
     left: 50%;
     bottom: 0;
     width: 0;
-    height: 3px;
-    background-image: linear-gradient(250deg, red, rgb(11, 149, 212));
-    transition: all 0.3s ease;
+    height: 4px;
+    background-image: linear-gradient(250deg, #fc4c4c, black);
+    transition: all 0.5s ease;
     transform: translateX(-50%);
     border-radius: 7px;
 }
 
-ul li a:hover:before {
+.menu li a:hover:before {
     width: 100%;
     margin-bottom: -5px;
 }
 
-ul li:nth-child(1) a {
+.menu li:nth-child(1) a {
     padding: 10px;
-    border: 1px solid#fc4c4c;
     background-color: #fc4c4c;
+    transition: all 0.6s ease²;
 }
 
-ul li:nth-child(1) a:before {
+.menu li:nth-child(1) a:before {
     display: none;
 }
 
-.max-width {
-    position: relative;
+.menu li:nth-child(1) a:hover {
+    background: none;
+    color: #fc4c4c;
+    border: 2px solid #fc4c4c;
+}
+
+.icons {
+    display: none;
+    cursor: pointer;
+    font-size: 40px;
 }
 
 .banner-card {
     position: relative;
-    width: 250px;
-    left: 42%;
+    width: 200px;
+    left: 46%;
 }
 
 .banner-card img {
-    width: 250px;
+    width: 200px;
     position: relative;
 }
 
@@ -132,6 +142,142 @@ ul li:nth-child(1) a:before {
 }
 
 .content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+    text-align: center;
+    max-width: 1300px;
+}
+
+.text {
+    text-transform: uppercase;
+    font-size: 75px;
+    color: #fc4c4c;
+    text-align: center;
+    font-family: 'Montserrat ExtraBold';
+}
+
+.text2 {
+    font-size: 6em;
+    font-family: 'Permanent Marker';
+}
+
+span a {
+    text-decoration: none;
+    color: #fff;
+}
+
+span a {
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 15px 55px 15px 55px;
+    background: #fc4c4c;
+    border-radius: 15px;
+    font-family: 'Montserrat ExtraBold';
+    color: #fff;
+    transition: all 0.6s ease;
+}
+
+span a:hover {
+    background: none;
+    color: #fc4c4c;
+    border: 2px solid #fc4c4c;
+}
+
+@media (max-width: 1121px) {
+    header {
+        margin: 0 auto;
+        padding: 40px 50px;
+    }
+}
+
+@media (max-width: 966px) {
+    header {
+        margin: 0 auto;
+        padding: 40px 30px;
+    }
+}
+
+@media (max-width: 948px) {
+    .banner-card {
+        width: 200px;
+    }
+    .banner-card img {
+        width: 200px;
+    }
+}
+
+@media (max-width: 359px) {
+    .banner-card {
+        width: 150px;
+    }
+    .banner-card img {
+        width: 150px;
+    }
+}
+
+@media (max-width: 952px) {
+    .icons {
+        display: block;
+        z-index: 999;
+    }
+    .navbar .menu {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        top: 0;
+        left: -100%;
+        background: rgb(255, 255, 255);
+        z-index: 999;
+        text-align: center;
+        padding-top: 200px;
+        transition: all 0.5s ease;
+    }
+    .navbar .menu.active {
+        left: 0;
+    }
+    .navbar .menu li {
+        display: block;
+    }
+    .navbar .menu li a {
+        display: inline-block;
+        padding-top: 40px;
+    }
+    .content {
+        padding: 0 80px;
+    }
+    .text {
+        font-size: 65px;
+    }
+    .text2 {
+        font-size: 5em;
+        font-family: 'Permanent Marker';
+    }
+    span a {
+        padding: 10px 45px 10px 45px;
+    }
+    @media (max-width:582px) {
+        .text {
+            font-size: 55px;
+        }
+        .text2 {
+            font-size: 4.5em;
+            font-family: 'Permanent Marker';
+        }
+        span a {
+            padding: 10px 45px 10px 45px;
+        }
+    }
+    @media (max-width: 353px) {
+        .content {
+            padding: 0 15px;
+        }
+    }
+}
+
+
+/*.content {
     position: absolute;
     display: flex;
     align-items: center;
@@ -156,10 +302,16 @@ ul li:nth-child(1) a:before {
 span {
     text-transform: uppercase;
     font-weight: 700;
-    border: 1px solid #fff;
     padding: 15px 55px 15px 55px;
     background: #fc4c4c;
     border-radius: 15px;
     font-family: 'Montserrat ExtraBold';
     color: #fff;
+    transition: all 0.6s ease;
 }
+
+span:hover {
+    background: none;
+    color: #fc4c4c;
+    border: 2px solid #fc4c4c;
+}*/
